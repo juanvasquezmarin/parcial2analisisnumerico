@@ -1,0 +1,171 @@
+"""
+==============================================================================
+REGLA DEL TRAPECIO PARA DATOS DISCRETOS
+==============================================================================
+
+TEORÍA:
+-------
+Cuando te dan una TABLA de datos (x, y) en lugar de una función f(x),
+usas esta versión del trapecio que suma áreas de trapecios entre puntos consecutivos.
+
+FÓRMULA:
+--------
+Para cada par de puntos consecutivos (xᵢ, yᵢ) y (xᵢ₊₁, yᵢ₊₁):
+
+   Área_trapecio = (yᵢ + yᵢ₊₁)/2 × (xᵢ₊₁ - xᵢ)
+
+Integral total = Σ Área_trapecio
+
+VENTAJA:
+--------
+✓ Funciona con espaciamiento VARIABLE (h no necesita ser constante)
+✓ Ideal para datos experimentales
+✓ No necesitas conocer la función f(x)
+
+CUÁNDO USAR:
+-----------
+✓ Te dan una TABLA de valores (x, y)
+✓ Datos experimentales o mediciones
+✓ No tienes la función explícita
+
+==============================================================================
+"""
+
+def trapecio_datos(x, y):
+    """
+    Calcula la integral de datos discretos usando trapecio.
+
+    PARÁMETROS:
+    -----------
+    x : list - valores de x (ordenados)
+    y : list - valores de y correspondientes
+
+    RETORNA:
+    --------
+    float - aproximación de la integral
+
+    EJEMPLO:
+    --------
+    x = [0, 1, 2, 3]
+    y = [0, 1, 4, 9]  # valores de x²
+    integral = trapecio_datos(x, y)
+    """
+
+    if len(x) != len(y):
+        raise ValueError(f"ERROR: x ({len(x)}) y y ({len(y)}) deben tener igual longitud")
+    if len(x) < 2:
+        raise ValueError("Se necesitan al menos 2 puntos")
+
+    n = len(x)
+
+    print("\n" + "="*110)
+    print("REGLA DEL TRAPECIO CON DATOS DISCRETOS")
+    print("="*110)
+    print(f"\nNúmero de puntos: {n}")
+    print(f"Rango: x ∈ [{x[0]}, {x[-1]}]")
+
+    print("\n" + "─"*110)
+    print("DATOS:")
+    print("─"*110)
+    print(f"{'i':>4} | {'x':>12} | {'y':>15}")
+    print("─"*110)
+    for i in range(n):
+        print(f"{i:>4} | {x[i]:>12.6f} | {y[i]:>15.10f}")
+
+    print("\n" + "─"*110)
+    print("CÁLCULO DE ÁREAS:")
+    print("─"*110)
+    print(f"{'Intervalo':>10} | {'x[i]':>12} | {'x[i+1]':>12} | {'h':>10} | {'y[i]':>12} | {'y[i+1]':>12} | {'Área':>15}")
+    print("─"*110)
+
+    suma = 0
+    for i in range(n - 1):
+        h = x[i+1] - x[i]
+        area = (y[i] + y[i+1]) * h / 2
+        suma += area
+        print(f"{'['+str(i)+','+str(i+1)+']':>10} | {x[i]:>12.6f} | {x[i+1]:>12.6f} | {h:>10.6f} | {y[i]:>12.6f} | {y[i+1]:>12.6f} | {area:>15.10f}")
+
+    print("─"*110)
+    print(f"\n{'INTEGRAL TOTAL: ' + f'{suma:.10f}':^110}")
+    print("="*110 + "\n")
+
+    return suma
+
+
+if __name__ == "__main__":
+    print("\n" + "╔"+"═"*108 + "╗")
+    print("║" + " "*108 + "║")
+    print("║" + "TRAPECIO CON DATOS DISCRETOS - EJEMPLOS".center(108) + "║")
+    print("║" + " "*108 + "║")
+    print("╚"+"═"*108 + "╝")
+
+    print("\n\n" + "┌" + "─"*108 + "┐")
+    print("│ EJEMPLO 1: Datos de y = x² en [0,3]".ljust(108) + "│")
+    print("└" + "─"*108 + "┘")
+
+    x1 = [0, 1, 2, 3]
+    y1 = [0, 1, 4, 9]
+    resultado1 = trapecio_datos(x1, y1)
+    exacto1 = 9  # ∫₀³ x² dx = x³/3 |₀³ = 27/3 = 9
+    print(f"Exacto: {exacto1}, Error: {abs(resultado1-exacto1):.2f}")
+
+    print("\n\n" + "┌" + "─"*108 + "┐")
+    print("│ EJEMPLO 2: Datos con espaciamiento NO UNIFORME".ljust(108) + "│")
+    print("└" + "─"*108 + "┘")
+
+    x2 = [0, 7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84]
+    y2 = [0.02, 0.077, 0.206, 0.431, 0.766, 1.163, 1.559, 1.907, 2.18, 2.377, 2.511, 2.604, 2.67]
+    resultado2 = trapecio_datos(x2, y2)
+
+    print("\n" + "╔"+"═"*108 + "╗")
+    print("║" + "GUÍA PARA EL PARCIAL".center(108) + "║")
+    print("╚"+"═"*108 + "╝")
+    print("""
+    USO CUANDO TE DAN UNA TABLA:
+    ============================
+    
+    1. Transcribe los datos:
+       x = [x₀, x₁, x₂, ...]
+       y = [y₀, y₁, y₂, ...]
+    
+    2. Ejecuta:
+       resultado = trapecio_datos(x, y)
+    
+    3. Respuesta:
+       print(f"Integral ≈ {resultado}")
+    
+    
+    EJEMPLO DEL PARCIAL:
+    ====================
+    
+    "Dada la siguiente tabla de datos experimentales,
+     calcule la integral usando la regla del trapecio:"
+    
+    ┌─────┬──────┬──────┬──────┬──────┬──────┐
+    │  x  │  0.0 │  0.5 │  1.0 │  1.5 │  2.0 │
+    ├─────┼──────┼──────┼──────┼──────┼──────┤
+    │  y  │  1.0 │  1.6 │  2.5 │  3.8 │  5.2 │
+    └─────┴──────┴──────┴──────┴──────┴──────┘
+    
+    SOLUCIÓN:
+    >>> x = [0.0, 0.5, 1.0, 1.5, 2.0]
+    >>> y = [1.0, 1.6, 2.5, 3.8, 5.2]
+    >>> resultado = trapecio_datos(x, y)
+    >>> print(f"Respuesta: {resultado}")
+    
+    
+    VENTAJAS:
+    =========
+    ✓ Funciona con espaciamiento variable
+    ✓ No necesitas la función f(x)
+    ✓ Perfecto para datos experimentales
+    ✓ Simple y robusto
+    
+    
+    TIPS:
+    =====
+    • Asegúrate de que x esté ORDENADO (creciente)
+    • Verifica que x e y tengan la MISMA LONGITUD
+    • Puedes copiar los datos directamente del Excel
+    """)
+
