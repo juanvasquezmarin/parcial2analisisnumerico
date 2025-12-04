@@ -153,89 +153,20 @@ def heun(f, x0, y0, h, n):
 
 
 # ==============================================================================
-# EJEMPLOS DE USO
+# USO DEL ARCHIVO
 # ==============================================================================
 
 if __name__ == "__main__":
-    print("\n" + "╔"+"═"*98 + "╗")
-    print("║" + " "*98 + "║")
-    print("║" + "EJEMPLOS DE USO DEL MÉTODO DE HEUN".center(98) + "║")
-    print("║" + " "*98 + "║")
-    print("╚"+"═"*98 + "╝")
-
-    # ========================================
-    # EJEMPLO 1: dy/dx = x + y, y(0) = 1
-    # ========================================
-    print("\n\n" + "┌" + "─"*98 + "┐")
-    print("│ EJEMPLO 1: dy/dx = x + y con y(0) = 1".ljust(98) + "│")
-    print("│ (Este problema tiene solución exacta: y = 2eˣ - x - 1)".ljust(98) + "│")
-    print("└" + "─"*98 + "┘")
-
-    f1 = lambda x, y: x + y
-    x_vals, y_vals = heun(f1, x0=0, y0=1, h=0.1, n=5)
-
-    # Comparar con solución exacta
-    import math
-    x_final = x_vals[-1]
-    y_exacta = 2*math.exp(x_final) - x_final - 1
-    error = abs(y_vals[-1] - y_exacta)
-
-    print(f"\nComparación con solución exacta:")
-    print(f"  y_numérica = {y_vals[-1]:.10f}")
-    print(f"  y_exacta   = {y_exacta:.10f}")
-    print(f"  Error      = {error:.2e}")
-
-    # ========================================
-    # EJEMPLO 2: dy/dx = -2xy², y(0) = 1
-    # ========================================
-    print("\n\n" + "┌" + "─"*98 + "┐")
-    print("│ EJEMPLO 2: dy/dx = -2xy² con y(0) = 1".ljust(98) + "│")
-    print("└" + "─"*98 + "┘")
-
-    f2 = lambda x, y: -2 * x * y**2
-    x_vals2, y_vals2 = heun(f2, x0=0, y0=1, h=0.1, n=5)
-
-    # ========================================
-    # GUÍA DE USO RÁPIDA
-    # ========================================
-    print("\n\n" + "╔"+"═"*98 + "╗")
-    print("║" + " "*98 + "║")
-    print("║" + "GUÍA RÁPIDA PARA EL PARCIAL".center(98) + "║")
-    print("║" + " "*98 + "║")
-    print("╚"+"═"*98 + "╝")
-    print("""
-    PASOS PARA RESOLVER UN PROBLEMA:
-    ================================
+    # ============================================================================
+    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
+    # ============================================================================
+    #
+    # 1. Define tu función o datos según el método
+    # 2. Llama a la función correspondiente con los parámetros necesarios
+    # 3. La respuesta se muestra automáticamente y se retorna
+    #
+    # Consulta el docstring de la función principal para ver ejemplos de uso
+    # ============================================================================
     
-    1. Identifica la ecuación diferencial y condiciones:
-       • Ecuación: dy/dx = f(x, y)
-       • Condición inicial: y(x₀) = y₀
-       • Punto final: x_final
-       • Tamaño de paso: h (o calcula n = (x_final - x₀) / h)
-    
-    2. Define la función en Python:
-       f = lambda x, y: [escribe tu ecuación aquí]
-    
-    3. Ejecuta el método:
-       x_vals, y_vals = heun(f, x0, y0, h, n)
-    
-    4. La respuesta está en el último valor:
-       respuesta = y_vals[-1]
-    
-    EJEMPLO COMPLETO DEL PARCIAL:
-    =============================
-    Problema: "Resolver dy/dx = x² - y, y(0) = 1, encontrar y(0.3) con h = 0.1"
-    
-    Solución:
-    >>> f = lambda x, y: x**2 - y
-    >>> n = int((0.3 - 0) / 0.1)  # n = 3 pasos
-    >>> x_vals, y_vals = heun(f, x0=0, y0=1, h=0.1, n=3)
-    >>> print(f"Respuesta: y(0.3) = {y_vals[-1]:.6f}")
-    
-    VENTAJAS DE HEUN VS EULER:
-    =========================
-    • Heun es MÁS PRECISO que Euler (orden 2 vs orden 1)
-    • Solo requiere 2 evaluaciones por paso (vs 1 de Euler)
-    • Es el método recomendado para balancear velocidad y precisión
-    """)
-
+    # Escribe tu código aquí:
+    pass

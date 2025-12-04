@@ -93,79 +93,21 @@ def trapecio_datos(x, y):
 
 
 if __name__ == "__main__":
-    print("\n" + "╔"+"═"*108 + "╗")
-    print("║" + " "*108 + "║")
-    print("║" + "TRAPECIO CON DATOS DISCRETOS - EJEMPLOS".center(108) + "║")
-    print("║" + " "*108 + "║")
-    print("╚"+"═"*108 + "╝")
+    # ============================================================================
+    # CÓMO USAR ESTE ARCHIVO EN TU PARCIAL
+    # ============================================================================
+    #
+    # 1. Copia los datos de tu tabla:
+    #    x = [valor1, valor2, valor3, ...]
+    #    y = [valor1, valor2, valor3, ...]
+    #
+    # 2. Llama a la función:
+    #    resultado = trapecio_datos(x, y)
+    #
+    # 3. La respuesta se muestra automáticamente y se retorna en 'resultado'
+    #
+    # ============================================================================
 
-    print("\n\n" + "┌" + "─"*108 + "┐")
-    print("│ EJEMPLO 1: Datos de y = x² en [0,3]".ljust(108) + "│")
-    print("└" + "─"*108 + "┘")
-
-    x1 = [0, 1, 2, 3]
-    y1 = [0, 1, 4, 9]
-    resultado1 = trapecio_datos(x1, y1)
-    exacto1 = 9  # ∫₀³ x² dx = x³/3 |₀³ = 27/3 = 9
-    print(f"Exacto: {exacto1}, Error: {abs(resultado1-exacto1):.2f}")
-
-    print("\n\n" + "┌" + "─"*108 + "┐")
-    print("│ EJEMPLO 2: Datos con espaciamiento NO UNIFORME".ljust(108) + "│")
-    print("└" + "─"*108 + "┘")
-
-    x2 = [0, 7, 14, 21, 28, 35, 42, 49, 56, 63, 70, 77, 84]
-    y2 = [0.02, 0.077, 0.206, 0.431, 0.766, 1.163, 1.559, 1.907, 2.18, 2.377, 2.511, 2.604, 2.67]
-    resultado2 = trapecio_datos(x2, y2)
-
-    print("\n" + "╔"+"═"*108 + "╗")
-    print("║" + "GUÍA PARA EL PARCIAL".center(108) + "║")
-    print("╚"+"═"*108 + "╝")
-    print("""
-    USO CUANDO TE DAN UNA TABLA:
-    ============================
-    
-    1. Transcribe los datos:
-       x = [x₀, x₁, x₂, ...]
-       y = [y₀, y₁, y₂, ...]
-    
-    2. Ejecuta:
-       resultado = trapecio_datos(x, y)
-    
-    3. Respuesta:
-       print(f"Integral ≈ {resultado}")
-    
-    
-    EJEMPLO DEL PARCIAL:
-    ====================
-    
-    "Dada la siguiente tabla de datos experimentales,
-     calcule la integral usando la regla del trapecio:"
-    
-    ┌─────┬──────┬──────┬──────┬──────┬──────┐
-    │  x  │  0.0 │  0.5 │  1.0 │  1.5 │  2.0 │
-    ├─────┼──────┼──────┼──────┼──────┼──────┤
-    │  y  │  1.0 │  1.6 │  2.5 │  3.8 │  5.2 │
-    └─────┴──────┴──────┴──────┴──────┴──────┘
-    
-    SOLUCIÓN:
-    >>> x = [0.0, 0.5, 1.0, 1.5, 2.0]
-    >>> y = [1.0, 1.6, 2.5, 3.8, 5.2]
-    >>> resultado = trapecio_datos(x, y)
-    >>> print(f"Respuesta: {resultado}")
-    
-    
-    VENTAJAS:
-    =========
-    ✓ Funciona con espaciamiento variable
-    ✓ No necesitas la función f(x)
-    ✓ Perfecto para datos experimentales
-    ✓ Simple y robusto
-    
-    
-    TIPS:
-    =====
-    • Asegúrate de que x esté ORDENADO (creciente)
-    • Verifica que x e y tengan la MISMA LONGITUD
-    • Puedes copiar los datos directamente del Excel
-    """)
+    # Escribe tu código aquí:
+    pass
 

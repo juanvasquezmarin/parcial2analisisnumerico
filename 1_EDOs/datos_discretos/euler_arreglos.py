@@ -156,115 +156,20 @@ def euler_arreglos(x, dy, y0):
 
 
 # ==============================================================================
-# EJEMPLOS DE USO
+# USO DEL ARCHIVO
 # ==============================================================================
 
 if __name__ == "__main__":
-    print("\n" + "╔"+"═"*93 + "╗")
-    print("║" + " "*93 + "║")
-    print("║" + "EJEMPLOS DE USO - EULER CON DATOS DISCRETOS".center(93) + "║")
-    print("║" + " "*93 + "║")
-    print("╚"+"═"*93 + "╝")
-
-    # ========================================
-    # EJEMPLO 1: Derivada lineal dy/dx = 2x
-    # ========================================
-    print("\n\n" + "┌" + "─"*93 + "┐")
-    print("│ EJEMPLO 1: Datos de dy/dx = 2x, y(0) = 0".ljust(93) + "│")
-    print("│ (Solución exacta: y = x²)".ljust(93) + "│")
-    print("└" + "─"*93 + "┘")
-
-    x_datos1 = [0, 0.2, 0.4, 0.6, 0.8, 1.0]
-    dy_datos1 = [0, 0.4, 0.8, 1.2, 1.6, 2.0]  # dy/dx = 2x
-
-    y_resultado1 = euler_arreglos(x_datos1, dy_datos1, y0=0)
-
-    # Comparar con solución exacta
-    print(f"\nComparación con solución exacta y = x²:")
-    print(f"  y_numérica(1.0) = {y_resultado1[-1]:.6f}")
-    print(f"  y_exacta(1.0)   = {1.0**2:.6f}")
-    print(f"  Error           = {abs(y_resultado1[-1] - 1.0):.6f}")
-
-    # ========================================
-    # EJEMPLO 2: Paso variable
-    # ========================================
-    print("\n\n" + "┌" + "─"*93 + "┐")
-    print("│ EJEMPLO 2: Datos con paso variable (no uniforme)".ljust(93) + "│")
-    print("└" + "─"*93 + "┘")
-
-    x_datos2 = [0, 0.1, 0.3, 0.7, 1.0]  # Pasos: 0.1, 0.2, 0.4, 0.3
-    dy_datos2 = [1, 1.2, 1.6, 2.4, 3.0]
-
-    y_resultado2 = euler_arreglos(x_datos2, dy_datos2, y0=2)
-
-    # ========================================
-    # GUÍA DE USO PARA EL PARCIAL
-    # ========================================
-    print("\n\n" + "╔"+"═"*93 + "╗")
-    print("║" + " "*93 + "║")
-    print("║" + "GUÍA PARA USAR EN TU PARCIAL".center(93) + "║")
-    print("║" + " "*93 + "║")
-    print("╚"+"═"*93 + "╝")
-    print("""
-    ┌───────────────────────────────────────────────────────────────────────────────────────────┐
-    │ SITUACIÓN: Te dan una TABLA con valores de x y dy/dx                                     │
-    └───────────────────────────────────────────────────────────────────────────────────────────┘
+    # ============================================================================
+    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
+    # ============================================================================
+    #
+    # 1. Define tu función o datos según el método
+    # 2. Llama a la función correspondiente con los parámetros necesarios
+    # 3. La respuesta se muestra automáticamente y se retorna
+    #
+    # Consulta el docstring de la función principal para ver ejemplos de uso
+    # ============================================================================
     
-    PASOS A SEGUIR:
-    ===============
-    
-    1. TRANSCRIBIR los datos de la tabla a listas de Python:
-    
-       x_datos = [x₀, x₁, x₂, ..., xₙ]
-       dy_datos = [dy₀, dy₁, dy₂, ..., dyₙ]
-    
-    2. IDENTIFICAR la condición inicial y₀:
-       • Busca en el problema: "y(x₀) = ..." 
-       • Si no está explícita, suele ser y₀ = 0
-    
-    3. EJECUTAR el método:
-    
-       y_resultado = euler_arreglos(x_datos, dy_datos, y0=y₀)
-    
-    4. OBTENER la respuesta:
-       • Si preguntan por y en el último punto: y_resultado[-1]
-       • Si preguntan por y en un punto intermedio: y_resultado[índice]
-    
-    
-    EJEMPLO COMPLETO DEL PARCIAL:
-    =============================
-    
-    PROBLEMA:
-    "Dada la siguiente tabla de datos y la condición inicial y(0) = 1,
-     use el método de Euler para calcular y(0.6):"
-    
-    ┌───────┬──────┬──────┬──────┬──────┐
-    │   x   │ 0.0  │ 0.2  │ 0.4  │ 0.6  │
-    ├───────┼──────┼──────┼──────┼──────┤
-    │ dy/dx │ 1.0  │ 1.5  │ 2.0  │ 2.5  │
-    └───────┴──────┴──────┴──────┴──────┘
-    
-    SOLUCIÓN:
-    
-    >>> x_datos = [0.0, 0.2, 0.4, 0.6]
-    >>> dy_datos = [1.0, 1.5, 2.0, 2.5]
-    >>> y_resultado = euler_arreglos(x_datos, dy_datos, y0=1)
-    >>> print(f"RESPUESTA: y(0.6) = {y_resultado[-1]}")
-    
-    
-    TIPS IMPORTANTES:
-    =================
-    • Los arreglos x y dy DEBEN tener la misma longitud
-    • El orden de los datos importa (deben estar ordenados por x creciente)
-    • Si el paso h no es constante, ¡no hay problema! El método lo maneja automáticamente
-    • Puedes copiar los datos directo del Excel/tabla del examen
-    
-    
-    ERRORES COMUNES A EVITAR:
-    =========================
-    ❌ NO confundir dy (derivada) con y (función)
-    ❌ NO olvidar la condición inicial y0
-    ❌ NO usar dy[i+1] en lugar de dy[i] en la fórmula de Euler
-    ✓ Euler usa la derivada del punto ACTUAL (izquierdo)
-    """)
-
+    # Escribe tu código aquí:
+    pass

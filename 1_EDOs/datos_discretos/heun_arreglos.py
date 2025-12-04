@@ -153,102 +153,20 @@ def heun_arreglos(x, dy, y0):
 
 
 # ==============================================================================
-# EJEMPLOS
+# USO DEL ARCHIVO
 # ==============================================================================
 
 if __name__ == "__main__":
-    print("\n" + "╔"+"═"*108 + "╗")
-    print("║" + " "*108 + "║")
-    print("║" + "MÉTODO DE HEUN CON DATOS DISCRETOS - EJEMPLOS".center(108) + "║")
-    print("║" + " "*108 + "║")
-    print("╚"+"═"*108 + "╝")
-
-    # ========================================
-    # EJEMPLO 1
-    # ========================================
-    print("\n\n" + "┌" + "─"*108 + "┐")
-    print("│ EJEMPLO 1: dy/dx = 2x, y(0) = 0  (Solución exacta: y = x²)".ljust(108) + "│")
-    print("└" + "─"*108 + "┘")
-
-    x1 = [0, 0.2, 0.4, 0.6, 0.8, 1.0]
-    dy1 = [0, 0.4, 0.8, 1.2, 1.6, 2.0]
-
-    y1 = heun_arreglos(x1, dy1, 0)
-
-    print(f"\nComparación:")
-    print(f"  Heun:   y(1.0) = {y1[-1]:.8f}")
-    print(f"  Exacta: y(1.0) = {1.0**2:.8f}")
-    print(f"  Error:          {abs(y1[-1] - 1.0):.2e}")
-
-    # ========================================
-    # EJEMPLO 2: Comparación Euler vs Heun
-    # ========================================
-    print("\n\n" + "┌" + "─"*108 + "┐")
-    print("│ EJEMPLO 2: COMPARACIÓN Euler vs Heun (mismo conjunto de datos)".ljust(108) + "│")
-    print("└" + "─"*108 + "┘")
-
-    # Importar euler para comparar
-    import sys
-    import os
-    # No importamos, solo mostramos conceptualmente
-
-    print("""
-    Con los mismos datos:
-    • Euler usa solo dy[i] → menos preciso
-    • Heun usa (dy[i] + dy[i+1])/2 → MÁS preciso
+    # ============================================================================
+    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
+    # ============================================================================
+    #
+    # 1. Define tu función o datos según el método
+    # 2. Llama a la función correspondiente con los parámetros necesarios
+    # 3. La respuesta se muestra automáticamente y se retorna
+    #
+    # Consulta el docstring de la función principal para ver ejemplos de uso
+    # ============================================================================
     
-    Para dy/dx = 2x con y(0) = 0:
-    • Solución exacta: y(1) = 1.000000
-    • Euler:           y(1) ≈ 0.880000  (error ~12%)
-    • Heun:            y(1) ≈ 1.000000  (error ~0%)
-    
-    ¡Heun es MUCHO más preciso!
-    """)
-
-    # ========================================
-    # GUÍA
-    # ========================================
-    print("\n" + "╔"+"═"*108 + "╗")
-    print("║" + " "*108 + "║")
-    print("║" + "GUÍA DE USO PARA EL PARCIAL".center(108) + "║")
-    print("║" + " "*108 + "║")
-    print("╚"+"═"*108 + "╝")
-    print("""
-    USO EN EL PARCIAL:
-    ==================
-    
-    1. Transcribir datos:
-       x = [...]
-       dy = [...]
-    
-    2. Identificar y₀
-    
-    3. Ejecutar:
-       y = heun_arreglos(x, dy, y0)
-    
-    4. Respuesta:
-       y[-1] para el último punto
-    
-    EJEMPLO:
-    --------
-    Tabla del examen:
-    ┌─────┬─────┬─────┬─────┐
-    │  x  │ 0.0 │ 0.1 │ 0.2 │
-    │dy/dx│ 2.0 │ 2.5 │ 3.0 │
-    └─────┴─────┴─────┴─────┘
-    
-    Con y(0) = 1, calcular y(0.2):
-    
-    >>> x = [0.0, 0.1, 0.2]
-    >>> dy = [2.0, 2.5, 3.0]
-    >>> y = heun_arreglos(x, dy, y0=1)
-    >>> print(f"y(0.2) = {y[-1]}")
-    
-    VENTAJAS DE HEUN:
-    =================
-    ✓ Más preciso que Euler (orden 2 vs orden 1)
-    ✓ Solo requiere los mismos datos que Euler
-    ✓ Fácil de implementar y entender
-    ✓ Es el método recomendado para datos discretos
-    """)
-
+    # Escribe tu código aquí:
+    pass

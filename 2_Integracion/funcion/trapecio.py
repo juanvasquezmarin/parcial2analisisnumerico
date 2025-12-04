@@ -152,126 +152,30 @@ def trapecio(f, a, b, n):
 
 
 # ==============================================================================
-# EJEMPLOS
+# USO DEL ARCHIVO
 # ==============================================================================
 
 if __name__ == "__main__":
-    import math
+    # ============================================================================
+    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
+    # ============================================================================
+    #
+    # 1. Define tu función:
+    #    f = lambda x: [tu_expresión]
+    #    Ejemplo: f = lambda x: x**2 + 3*x
+    #
+    # 2. Llama a la función con los parámetros:
+    #    resultado = trapecio(f, a=límite_inferior, b=límite_superior, n=num_intervalos)
+    #
+    # 3. La respuesta se muestra automáticamente y se retorna en 'resultado'
+    #
+    # EJEMPLO:
+    # f = lambda x: x**2
+    # resultado = trapecio(f, a=0, b=1, n=10)
+    # print(f"Respuesta: {resultado}")
+    # ============================================================================
 
-    print("\n" + "╔"+"═"*98 + "╗")
-    print("║" + " "*98 + "║")
-    print("║" + "EJEMPLOS DE INTEGRACIÓN CON LA REGLA DEL TRAPECIO".center(98) + "║")
-    print("║" + " "*98 + "║")
-    print("╚"+"═"*98 + "╝")
+    # Escribe tu código aquí:
+    pass
 
-    # ========================================
-    # EJEMPLO 1: Integral simple
-    # ========================================
-    print("\n\n" + "┌" + "─"*98 + "┐")
-    print("│ EJEMPLO 1: ∫₀¹ x² dx  (Valor exacto = 1/3 ≈ 0.333333...)".ljust(98) + "│")
-    print("└" + "─"*98 + "┘")
-
-    f1 = lambda x: x**2
-    resultado1 = trapecio(f1, a=0, b=1, n=6)
-
-    exacto1 = 1/3
-    error1 = abs(resultado1 - exacto1)
-    print(f"Comparación:")
-    print(f"  Trapecio: {resultado1:.12f}")
-    print(f"  Exacto:   {exacto1:.12f}")
-    print(f"  Error:    {error1:.2e}")
-
-    # ========================================
-    # EJEMPLO 2: Función trigonométrica
-    # ========================================
-    print("\n\n" + "┌" + "─"*98 + "┐")
-    print("│ EJEMPLO 2: ∫₀^(π/2) sen(x) dx  (Valor exacto = 1)".ljust(98) + "│")
-    print("└" + "─"*98 + "┘")
-
-    f2 = lambda x: math.sin(x)
-    resultado2 = trapecio(f2, a=0, b=math.pi/2, n=10)
-
-    exacto2 = 1.0
-    error2 = abs(resultado2 - exacto2)
-    print(f"Comparación:")
-    print(f"  Trapecio: {resultado2:.12f}")
-    print(f"  Exacto:   {exacto2:.12f}")
-    print(f"  Error:    {error2:.2e}")
-
-    # ========================================
-    # EJEMPLO 3: Función más compleja
-    # ========================================
-    print("\n\n" + "┌" + "─"*98 + "┐")
-    print("│ EJEMPLO 3: ∫₁² (1/x) dx = ln(2) ≈ 0.693147...".ljust(98) + "│")
-    print("└" + "─"*98 + "┘")
-
-    f3 = lambda x: 1/x
-    resultado3 = trapecio(f3, a=1, b=2, n=20)
-
-    exacto3 = math.log(2)
-    error3 = abs(resultado3 - exacto3)
-    print(f"Comparación:")
-    print(f"  Trapecio: {resultado3:.12f}")
-    print(f"  Exacto:   {exacto3:.12f}")
-    print(f"  Error:    {error3:.2e}")
-
-    # ========================================
-    # GUÍA
-    # ========================================
-    print("\n\n" + "╔"+"═"*98 + "╗")
-    print("║" + " "*98 + "║")
-    print("║" + "GUÍA PARA USAR EN TU PARCIAL".center(98) + "║")
-    print("║" + " "*98 + "║")
-    print("╚"+"═"*98 + "╝")
-    print("""
-    USO RÁPIDO:
-    ===========
-    
-    1. Define tu función:
-       f = lambda x: [expresión]
-    
-    2. Identifica límites y número de intervalos:
-       a = límite inferior
-       b = límite superior
-       n = número de subintervalos
-    
-    3. Ejecuta:
-       resultado = trapecio(f, a, b, n)
-    
-    4. Usa el resultado:
-       print(f"∫ f(x) dx ≈ {resultado}")
-    
-    
-    EJEMPLOS DEL PARCIAL:
-    =====================
-    
-    Problema 1: "Calcular ∫₀² (x³ + 2x) dx con n=8"
-    >>> f = lambda x: x**3 + 2*x
-    >>> resultado = trapecio(f, 0, 2, 8)
-    
-    Problema 2: "∫₁³ e^x dx con 10 subintervalos"
-    >>> import math
-    >>> f = lambda x: math.exp(x)
-    >>> resultado = trapecio(f, 1, 3, 10)
-    
-    Problema 3: "∫₀^π cos(x) dx con n=12"
-    >>> import math
-    >>> f = lambda x: math.cos(x)
-    >>> resultado = trapecio(f, 0, math.pi, 12)
-    
-    
-    TIPS:
-    =====
-    • Mientras MAYOR sea n, MÁS PRECISO el resultado
-    • Si n no está dado, usa n ≥ 10 para buena precisión
-    • Para funciones muy variables, usa n más grande
-    • El método es exacto para funciones LINEALES
-    
-    
-    ELECCIÓN DE n:
-    ==============
-    • n = 4-6:   Cálculo rápido, precisión baja
-    • n = 10-20: Balance entre velocidad y precisión (RECOMENDADO)
-    • n = 50+:   Alta precisión, más cálculos
-    """)
 

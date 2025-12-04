@@ -169,156 +169,20 @@ def rk4(f, x0, y0, h, n):
 
 
 # ==============================================================================
-# EJEMPLOS DE USO
+# USO DEL ARCHIVO
 # ==============================================================================
 
 if __name__ == "__main__":
-    print("\n" + "╔"+"═"*118 + "╗")
-    print("║" + " "*118 + "║")
-    print("║" + "EJEMPLOS DE USO DEL MÉTODO DE RUNGE-KUTTA DE 4TO ORDEN (RK4)".center(118) + "║")
-    print("║" + " "*118 + "║")
-    print("╚"+"═"*118 + "╝")
-
-    # ========================================
-    # EJEMPLO 1: Problema clásico
-    # ========================================
-    print("\n\n" + "┌" + "─"*118 + "┐")
-    print("│ EJEMPLO 1: dy/dx = x + y con y(0) = 1".ljust(118) + "│")
-    print("│ Solución exacta: y = 2eˣ - x - 1".ljust(118) + "│")
-    print("└" + "─"*118 + "┘")
-
-    f1 = lambda x, y: x + y
-    x_vals, y_vals = rk4(f1, x0=0, y0=1, h=0.1, n=5)
-
-    # Comparar con solución exacta
-    import math
-    x_final = x_vals[-1]
-    y_exacta = 2*math.exp(x_final) - x_final - 1
-    error = abs(y_vals[-1] - y_exacta)
-
-    print(f"\n{'COMPARACIÓN CON SOLUCIÓN EXACTA:':^120}")
-    print(f"{'─'*120}")
-    print(f"  Solución numérica (RK4): y({x_final:.1f}) = {y_vals[-1]:.12f}")
-    print(f"  Solución exacta:         y({x_final:.1f}) = {y_exacta:.12f}")
-    print(f"  Error absoluto:                           {error:.2e}")
-    print(f"{'─'*120}")
-
-    # ========================================
-    # EJEMPLO 2: Ecuación no lineal
-    # ========================================
-    print("\n\n" + "┌" + "─"*118 + "┐")
-    print("│ EJEMPLO 2: dy/dx = -2xy² con y(0) = 1 (ecuación no lineal)".ljust(118) + "│")
-    print("└" + "─"*118 + "┘")
-
-    f2 = lambda x, y: -2 * x * y**2
-    x_vals2, y_vals2 = rk4(f2, x0=0, y0=1, h=0.1, n=5)
-
-    # ========================================
-    # COMPARACIÓN DE MÉTODOS
-    # ========================================
-    print("\n\n" + "┌" + "─"*118 + "┐")
-    print("│ COMPARACIÓN: Euler vs Heun vs RK4 para dy/dx = x + y, y(0) = 1".ljust(118) + "│")
-    print("└" + "─"*118 + "┘")
-
-    # Importar otros métodos para comparar
-    import sys
-    import os
-
-    print(f"\n{'Comparando precisión con h = 0.2 (menos pasos):':^120}")
-    print("─"*120)
-
-    # RK4 con pasos grandes
-    h_grande = 0.2
-    n_pasos = 2  # Solo 2 pasos para llegar a x=0.4
-
-    f_test = lambda x, y: x + y
-    x_rk4, y_rk4 = rk4(f_test, 0, 1, h_grande, n_pasos)
-
-    x_final_test = x_rk4[-1]
-    y_exacta_test = 2*math.exp(x_final_test) - x_final_test - 1
-    error_rk4 = abs(y_rk4[-1] - y_exacta_test)
-
-    print(f"  RK4:   Error = {error_rk4:.8e}  (¡Excelente precisión incluso con pasos grandes!)")
-    print("─"*120)
-
-    # ========================================
-    # GUÍA COMPLETA DE USO
-    # ========================================
-    print("\n\n" + "╔"+"═"*118 + "╗")
-    print("║" + " "*118 + "║")
-    print("║" + "GUÍA COMPLETA PARA USAR RK4 EN TU PARCIAL".center(118) + "║")
-    print("║" + " "*118 + "║")
-    print("╚"+"═"*118 + "╝")
-    print("""
-    ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-    │ CUÁNDO USAR RK4:                                                                                                       │
-    ├────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-    │ ✓ Cuando el problema pide "el método más preciso"                                                                     │
-    │ ✓ Cuando necesitas pocas iteraciones pero alta precisión                                                              │
-    │ ✓ Cuando el problema no especifica qué método usar (RK4 es la opción segura)                                          │
-    │ ✓ Para problemas con funciones complicadas donde Euler sería muy inexacto                                             │
-    └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+    # ============================================================================
+    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
+    # ============================================================================
+    #
+    # 1. Define tu función o datos según el método
+    # 2. Llama a la función correspondiente con los parámetros necesarios
+    # 3. La respuesta se muestra automáticamente y se retorna
+    #
+    # Consulta el docstring de la función principal para ver ejemplos de uso
+    # ============================================================================
     
-    ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-    │ PASOS PARA RESOLVER EN EL PARCIAL:                                                                                    │
-    ├────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-    │                                                                                                                        │
-    │  1. LEER EL PROBLEMA e identificar:                                                                                   │
-    │     • La ecuación diferencial: dy/dx = f(x, y)                                                                        │
-    │     • Condición inicial: y(x₀) = y₀                                                                                   │
-    │     • Punto final deseado: x_final                                                                                    │
-    │     • Tamaño de paso h (o calcularlo)                                                                                 │
-    │                                                                                                                        │
-    │  2. ESCRIBIR LA FUNCIÓN en Python:                                                                                    │
-    │     f = lambda x, y: [tu ecuación]                                                                                    │
-    │                                                                                                                        │
-    │  3. CALCULAR el número de pasos:                                                                                      │
-    │     n = int((x_final - x0) / h)                                                                                       │
-    │                                                                                                                        │
-    │  4. EJECUTAR RK4:                                                                                                     │
-    │     x_vals, y_vals = rk4(f, x0, y0, h, n)                                                                             │
-    │                                                                                                                        │
-    │  5. OBTENER LA RESPUESTA:                                                                                             │
-    │     respuesta = y_vals[-1]                                                                                            │
-    │                                                                                                                        │
-    └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-    
-    ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-    │ EJEMPLO COMPLETO PASO A PASO:                                                                                         │
-    ├────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-    │                                                                                                                        │
-    │  PROBLEMA: "Usar RK4 para resolver dy/dx = y - x², con y(0) = 1, encontrar y(0.4) usando h = 0.1"                    │
-    │                                                                                                                        │
-    │  SOLUCIÓN:                                                                                                            │
-    │                                                                                                                        │
-    │  # Paso 1: Definir la función                                                                                         │
-    │  f = lambda x, y: y - x**2                                                                                            │
-    │                                                                                                                        │
-    │  # Paso 2: Identificar parámetros                                                                                     │
-    │  x0 = 0                                                                                                               │
-    │  y0 = 1                                                                                                               │
-    │  h = 0.1                                                                                                              │
-    │  x_final = 0.4                                                                                                        │
-    │                                                                                                                        │
-    │  # Paso 3: Calcular número de pasos                                                                                   │
-    │  n = int((0.4 - 0) / 0.1)  # n = 4                                                                                    │
-    │                                                                                                                        │
-    │  # Paso 4: Resolver                                                                                                   │
-    │  x_vals, y_vals = rk4(f, x0=0, y0=1, h=0.1, n=4)                                                                      │
-    │                                                                                                                        │
-    │  # Paso 5: Mostrar respuesta                                                                                          │
-    │  print(f"RESPUESTA: y(0.4) = {y_vals[-1]:.8f}")                                                                       │
-    │                                                                                                                        │
-    └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-    
-    ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-    │ VENTAJAS DE RK4:                                                                                                       │
-    ├────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-    │ • ERROR de orden O(h⁴) - extremadamente preciso                                                                       │
-    │ • Puedes usar PASOS MÁS GRANDES que con Euler o Heun                                                                  │
-    │ • Es el ESTÁNDAR en la industria y la ciencia                                                                         │
-    │ • BALANCE PERFECTO entre precisión y costo computacional                                                              │
-    │ • Funciona bien con ecuaciones NO LINEALES                                                                            │
-    └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-    """)
-
+    # Escribe tu código aquí:
+    pass

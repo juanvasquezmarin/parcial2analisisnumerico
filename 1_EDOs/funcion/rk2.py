@@ -136,58 +136,20 @@ def rk2(f, x0, y0, h, n):
 
 
 # ==============================================================================
-# EJEMPLOS DE USO
+# USO DEL ARCHIVO
 # ==============================================================================
 
 if __name__ == "__main__":
-    print("\n" + "╔"+"═"*98 + "╗")
-    print("║" + " "*98 + "║")
-    print("║" + "EJEMPLOS DE USO DEL MÉTODO RK2".center(98) + "║")
-    print("║" + " "*98 + "║")
-    print("╚"+"═"*98 + "╝")
-
-    # ========================================
-    # EJEMPLO 1
-    # ========================================
-    print("\n\n" + "┌" + "─"*98 + "┐")
-    print("│ EJEMPLO 1: dy/dx = x + y con y(0) = 1".ljust(98) + "│")
-    print("└" + "─"*98 + "┘")
-
-    f1 = lambda x, y: x + y
-    x_vals, y_vals = rk2(f1, x0=0, y0=1, h=0.1, n=5)
-
-    # ========================================
-    # EJEMPLO 2
-    # ========================================
-    print("\n\n" + "┌" + "─"*98 + "┐")
-    print("│ EJEMPLO 2: dy/dx = -2xy² con y(0) = 1".ljust(98) + "│")
-    print("└" + "─"*98 + "┘")
-
-    f2 = lambda x, y: -2 * x * y**2
-    x_vals2, y_vals2 = rk2(f2, x0=0, y0=1, h=0.1, n=5)
-
-    # ========================================
-    # GUÍA
-    # ========================================
-    print("\n\n" + "╔"+"═"*98 + "╗")
-    print("║" + " "*98 + "║")
-    print("║" + "GUÍA RÁPIDA".center(98) + "║")
-    print("║" + " "*98 + "║")
-    print("╚"+"═"*98 + "╝")
-    print("""
-    USO RÁPIDO:
-    ===========
-    1. Define tu ecuación: f = lambda x, y: [ecuación]
-    2. Ejecuta: x_vals, y_vals = rk2(f, x0, y0, h, n)
-    3. Respuesta: y_vals[-1]
+    # ============================================================================
+    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
+    # ============================================================================
+    #
+    # 1. Define tu función o datos según el método
+    # 2. Llama a la función correspondiente con los parámetros necesarios
+    # 3. La respuesta se muestra automáticamente y se retorna
+    #
+    # Consulta el docstring de la función principal para ver ejemplos de uso
+    # ============================================================================
     
-    EJEMPLO:
-    --------
-    # dy/dx = x - y, y(0) = 2, encontrar y(0.5) con h=0.1
-    f = lambda x, y: x - y
-    x_vals, y_vals = rk2(f, 0, 2, 0.1, 5)
-    print(f"y(0.5) = {y_vals[-1]}")
-    
-    NOTA: RK2 y Heun son equivalentes (misma fórmula, mismo orden de precisión)
-    """)
-
+    # Escribe tu código aquí:
+    pass

@@ -82,41 +82,21 @@ def simpson38_arreglos(x, y):
     return resultado
 
 
+# ==============================================================================
+# USO DEL ARCHIVO
+# ==============================================================================
+
 if __name__ == "__main__":
-    print("\n╔" + "═"*103 + "╗")
-    print("║" + "SIMPSON 3/8 CON DATOS - EJEMPLOS".center(103) + "║")
-    print("╚" + "═"*103 + "╝")
-
-    print("\n┌" + "─"*103 + "┐")
-    print("│ EJEMPLO: 4 puntos (3 intervalos = múltiplo de 3 ✓)".ljust(103) + "│")
-    print("└" + "─"*103 + "┘")
-
-    x = [0.0, 0.5, 1.0, 1.5]
-    y = [0.0, 0.25, 1.0, 2.25]
-
-    resultado = simpson38_arreglos(x, y)
-
-    print("\n╔" + "═"*103 + "╗")
-    print("║" + "GUÍA".center(103) + "║")
-    print("╚" + "═"*103 + "╝")
-    print("""
-    USO:
-    ====
-    x = [...]  # número de puntos tal que (n-1) sea múltiplo de 3
-    y = [...]
-    resultado = simpson38_arreglos(x, y)
+    # ============================================================================
+    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
+    # ============================================================================
+    #
+    # 1. Define tu función o datos según el método
+    # 2. Llama a la función correspondiente con los parámetros necesarios
+    # 3. La respuesta se muestra automáticamente y se retorna
+    #
+    # Consulta el docstring de la función principal para ver ejemplos de uso
+    # ============================================================================
     
-    REQUISITOS:
-    ===========
-    • 4 puntos → 3 intervalos ✓
-    • 7 puntos → 6 intervalos ✓
-    • 10 puntos → 9 intervalos ✓
-    • 13 puntos → 12 intervalos ✓
-    
-    EJEMPLO:
-    ========
-    x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]  # 10 puntos, 9 intervalos ✓
-    y = [...]
-    simpson38_arreglos(x, y)
-    """)
-
+    # Escribe tu código aquí:
+    pass

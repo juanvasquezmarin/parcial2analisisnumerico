@@ -106,45 +106,25 @@ def simpson38(f, a, b, n):
 
 
 if __name__ == "__main__":
-    import math
+    # ============================================================================
+    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
+    # ============================================================================
+    #
+    # 1. Define tu función:
+    #    f = lambda x: [tu_expresión]
+    #
+    # 2. Llama a la función (⚠️ n DEBE SER MÚLTIPLO DE 3):
+    #    resultado = simpson38(f, a=límite_inferior, b=límite_superior, n=num_intervalos)
+    #
+    # 3. La respuesta se muestra automáticamente
+    #
+    # EJEMPLO:
+    # f = lambda x: x**2
+    # resultado = simpson38(f, a=0, b=1, n=6)  # n=6 es múltiplo de 3 ✓
+    #
+    # IMPORTANTE: n debe ser múltiplo de 3 (3, 6, 9, 12, 15...)
+    # ============================================================================
 
-    print("\n" + "╔"+"═"*103 + "╗")
-    print("║" + " "*103 + "║")
-    print("║" + "SIMPSON 3/8 - EJEMPLOS".center(103) + "║")
-    print("║" + " "*103 + "║")
-    print("╚"+"═"*103 + "╝")
-
-    print("\n\n" + "┌" + "─"*103 + "┐")
-    print("│ EJEMPLO: ∫₀¹ x² dx = 1/3".ljust(103) + "│")
-    print("└" + "─"*103 + "┘")
-
-    f = lambda x: x**2
-    resultado = simpson38(f, 0, 1, 6)
-    print(f"Exacto: 0.333333..., Error: {abs(resultado - 1/3):.2e}")
-
-    print("\n" + "╔"+"═"*103 + "╗")
-    print("║" + "GUÍA DE USO".center(103) + "║")
-    print("╚"+"═"*103 + "╝")
-    print("""
-    USO:
-    ====
-    f = lambda x: [expresión]
-    resultado = simpson38(f, a, b, n)  ← n debe ser múltiplo de 3
-    
-    EJEMPLOS VÁLIDOS DE n:
-    ======================
-    n = 3, 6, 9, 12, 15, 18, ... ✓
-    
-    EJEMPLOS INVÁLIDOS:
-    ===================
-    n = 4, 5, 7, 8, 10, 11, ... ❌
-    
-    COMPARACIÓN:
-    ============
-    Simpson 1/3:  n par (2, 4, 6, 8, ...)      ← Más común
-    Simpson 3/8:  n múltiplo de 3 (3, 6, 9, ...) ← Menos común
-    
-    Ambos tienen la misma precisión O(h⁴).
-    Simpson 1/3 es preferido cuando ambos son aplicables.
-    """)
+    # Escribe tu código aquí:
+    pass
 

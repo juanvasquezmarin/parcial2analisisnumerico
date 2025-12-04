@@ -142,72 +142,20 @@ def euler(f, x0, y0, h, n):
 
 
 # ==============================================================================
-# EJEMPLOS DE USO
+# USO DEL ARCHIVO
 # ==============================================================================
 
 if __name__ == "__main__":
-    print("\n" + "╔"+"═"*78 + "╗")
-    print("║" + " "*78 + "║")
-    print("║" + "EJEMPLOS DE USO DEL MÉTODO DE EULER".center(78) + "║")
-    print("║" + " "*78 + "║")
-    print("╚"+"═"*78 + "╝")
-
-    # ========================================
-    # EJEMPLO 1: dy/dx = x + y, y(0) = 1
-    # ========================================
-    print("\n\n" + "┌" + "─"*78 + "┐")
-    print("│ EJEMPLO 1: dy/dx = x + y con y(0) = 1".ljust(78) + "│")
-    print("└" + "─"*78 + "┘")
-
-    # Definir la función derivada
-    f1 = lambda x, y: x + y
-
-    # Resolver
-    x_vals, y_vals = euler(f1, x0=0, y0=1, h=0.1, n=5)
-
-    # ========================================
-    # EJEMPLO 2: dy/dx = -2xy², y(0) = 1
-    # ========================================
-    print("\n\n" + "┌" + "─"*78 + "┐")
-    print("│ EJEMPLO 2: dy/dx = -2xy² con y(0) = 1".ljust(78) + "│")
-    print("└" + "─"*78 + "┘")
-
-    f2 = lambda x, y: -2 * x * y**2
-
-    x_vals2, y_vals2 = euler(f2, x0=0, y0=1, h=0.1, n=5)
-
-    # ========================================
-    # CÓMO MODIFICAR PARA TU PROBLEMA
-    # ========================================
-    print("\n\n" + "╔"+"═"*78 + "╗")
-    print("║" + " "*78 + "║")
-    print("║" + "CÓMO USAR PARA TU PROBLEMA DEL PARCIAL".center(78) + "║")
-    print("║" + " "*78 + "║")
-    print("╚"+"═"*78 + "╝")
-    print("""
-    1. Define tu función derivada f(x, y):
-       f = lambda x, y: [tu ecuación aquí]
+    # ============================================================================
+    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
+    # ============================================================================
+    #
+    # 1. Define tu función o datos según el método
+    # 2. Llama a la función correspondiente con los parámetros necesarios
+    # 3. La respuesta se muestra automáticamente y se retorna
+    #
+    # Consulta el docstring de la función principal para ver ejemplos de uso
+    # ============================================================================
     
-    2. Identifica tus condiciones iniciales:
-       x0 = [valor inicial de x]
-       y0 = [valor inicial de y]
-    
-    3. Determina el paso h y cuántos pasos necesitas:
-       h = [tamaño del paso]
-       n = [número de pasos]
-    
-    4. Llama a la función:
-       x_vals, y_vals = euler(f, x0, y0, h, n)
-    
-    5. El último valor es tu respuesta:
-       print(f"Solución: y({x_vals[-1]}) = {y_vals[-1]}")
-    
-    EJEMPLO COMPLETO:
-    ----------------
-    # Si te dan: dy/dx = 3x - 2y, y(1) = 2, calcula y(1.5) con h=0.1
-    
-    f = lambda x, y: 3*x - 2*y
-    x_vals, y_vals = euler(f, x0=1, y0=2, h=0.1, n=5)
-    print(f"Respuesta: y(1.5) = {y_vals[-1]}")
-    """)
-
+    # Escribe tu código aquí:
+    pass

@@ -134,93 +134,29 @@ def simpson13(f, a, b, n):
 
 
 # ==============================================================================
-# EJEMPLOS
+# USO DEL ARCHIVO
 # ==============================================================================
 
 if __name__ == "__main__":
-    import math
+    # ============================================================================
+    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
+    # ============================================================================
+    #
+    # 1. Define tu función:
+    #    f = lambda x: [tu_expresión]
+    #
+    # 2. Llama a la función (⚠️ n DEBE SER PAR):
+    #    resultado = simpson13(f, a=límite_inferior, b=límite_superior, n=num_intervalos_par)
+    #
+    # 3. La respuesta se muestra automáticamente
+    #
+    # EJEMPLO:
+    # f = lambda x: x**2
+    # resultado = simpson13(f, a=0, b=1, n=10)  # n=10 es PAR ✓
+    #
+    # IMPORTANTE: n debe ser PAR (2, 4, 6, 8, 10, 12...)
+    # ============================================================================
 
-    print("\n" + "╔"+"═"*103 + "╗")
-    print("║" + " "*103 + "║")
-    print("║" + "REGLA DE SIMPSON 1/3 - EJEMPLOS".center(103) + "║")
-    print("║" + " "*103 + "║")
-    print("╚"+"═"*103 + "╝")
-
-    # EJEMPLO 1
-    print("\n\n" + "┌" + "─"*103 + "┐")
-    print("│ EJEMPLO 1: ∫₀¹ x² dx = 1/3 ≈ 0.333333...".ljust(103) + "│")
-    print("└" + "─"*103 + "┘")
-
-    f1 = lambda x: x**2
-    resultado1 = simpson13(f1, 0, 1, 6)
-    exacto1 = 1/3
-    print(f"Exacto: {exacto1:.12f}, Error: {abs(resultado1-exacto1):.2e}")
-
-    # EJEMPLO 2
-    print("\n\n" + "┌" + "─"*103 + "┐")
-    print("│ EJEMPLO 2: ∫₀^(π/2) sen(x) dx = 1".ljust(103) + "│")
-    print("└" + "─"*103 + "┘")
-
-    f2 = lambda x: math.sin(x)
-    resultado2 = simpson13(f2, 0, math.pi/2, 10)
-    exacto2 = 1.0
-    print(f"Exacto: {exacto2:.12f}, Error: {abs(resultado2-exacto2):.2e}")
-
-    # EJEMPLO 3: Comparación
-    print("\n\n" + "┌" + "─"*103 + "┐")
-    print("│ EJEMPLO 3: Comparación Trapecio vs Simpson 1/3".ljust(103) + "│")
-    print("└" + "─"*103 + "┘")
-
-    print("""
-    Para ∫₀¹ x² dx con n=6:
-    
-    • Valor exacto:  0.333333333333
-    • Simpson 1/3:   0.333333333333  ← ¡Exacto!
-    • Trapecio:      0.342592592593  (error mayor)
-    
-    Simpson es MUCHO más preciso que trapecio.
-    """)
-
-    # GUÍA
-    print("\n" + "╔"+"═"*103 + "╗")
-    print("║" + " "*103 + "║")
-    print("║" + "GUÍA DE USO PARA EL PARCIAL".center(103) + "║")
-    print("║" + " "*103 + "║")
-    print("╚"+"═"*103 + "╝")
-    print("""
-    USO RÁPIDO:
-    ===========
-    1. f = lambda x: [expresión]
-    2. resultado = simpson13(f, a, b, n)  ← ¡n DEBE SER PAR!
-    3. print(resultado)
-    
-    EJEMPLOS:
-    =========
-    # ∫₀² x³ dx con n=8
-    >>> f = lambda x: x**3
-    >>> simpson13(f, 0, 2, 8)
-    
-    # ∫₁³ e^x dx con n=10
-    >>> import math
-    >>> f = lambda x: math.exp(x)
-    >>> simpson13(f, 1, 3, 10)
-    
-    ERROR COMÚN:
-    ============
-    ❌ simpson13(f, 0, 1, 5)  ← n=5 es IMPAR, dará error
-    ✓ simpson13(f, 0, 1, 6)  ← n=6 es PAR, funciona
-    
-    VENTAJAS:
-    =========
-    • Error O(h⁴) - muy preciso
-    • Exacto para polinomios hasta grado 3
-    • Mejor que trapecio en casi todos los casos
-    • Método estándar en ingeniería
-    
-    CUÁNDO PREFERIR SIMPSON:
-    ========================
-    ✓ Siempre que sea posible (si n puede ser par)
-    ✓ Funciones suaves
-    ✓ Cuando necesitas precisión
-    """)
+    # Escribe tu código aquí:
+    pass
 
