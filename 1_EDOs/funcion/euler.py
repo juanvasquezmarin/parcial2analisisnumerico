@@ -146,16 +146,8 @@ def euler(f, x0, y0, h, n):
 # ==============================================================================
 
 if __name__ == "__main__":
-    # ============================================================================
-    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
-    # ============================================================================
-    #
-    # 1. Define tu función o datos según el método
-    # 2. Llama a la función correspondiente con los parámetros necesarios
-    # 3. La respuesta se muestra automáticamente y se retorna
-    #
-    # Consulta el docstring de la función principal para ver ejemplos de uso
-    # ============================================================================
-    
-    # Escribe tu código aquí:
-    pass
+    # Ejemplo de uso del método de Euler
+    # La función f y los parámetros deben definirse aquí
+    f = lambda x, y: x + y  # Definir f en el main
+    x_vals, y_vals = euler(f, x0=0, y0=1, h=0.1, n=5)
+    print(f"Resultado final: y({x_vals[-1]}) = {y_vals[-1]}")

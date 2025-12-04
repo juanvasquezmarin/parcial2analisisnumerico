@@ -42,7 +42,7 @@ DIFERENCIA CON EULER:
 │ Euler  │ y[i+1] = y[i] + h·dy[i] │ O(h) - menos preciso │
 │ Heun   │ y[i+1] = y[i] + (h/2)·  │ O(h²) - más preciso  │
 │        │          (dy[i]+dy[i+1])│                      │
-└────────┴─────────────────────────┴──────────────────────┘
+└────────┴─────────────────────���───┴──────────────────────┘
 
 CUÁNDO USAR:
 -----------
@@ -157,6 +157,13 @@ def heun_arreglos(x, dy, y0):
 # ==============================================================================
 
 if __name__ == "__main__":
+    # Ejemplo de uso del método Heun con arreglos
+    # Los datos x_datos, dy_datos y y0 deben definirse aquí
+    x_datos = [0, 0.2, 0.4, 0.6, 0.8, 1.0]  # Definir datos en el main
+    dy_datos = [0, 0.4, 0.8, 1.2, 1.6, 2.0]
+    y_resultado = heun_arreglos(x_datos, dy_datos, y0=0)
+    print(f"Resultado final: y({x_datos[-1]}) = {y_resultado[-1]}")
+
     # ============================================================================
     # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
     # ============================================================================

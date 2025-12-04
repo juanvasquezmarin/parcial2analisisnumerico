@@ -160,16 +160,9 @@ def euler_arreglos(x, dy, y0):
 # ==============================================================================
 
 if __name__ == "__main__":
-    # ============================================================================
-    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
-    # ============================================================================
-    #
-    # 1. Define tu función o datos según el método
-    # 2. Llama a la función correspondiente con los parámetros necesarios
-    # 3. La respuesta se muestra automáticamente y se retorna
-    #
-    # Consulta el docstring de la función principal para ver ejemplos de uso
-    # ============================================================================
-    
-    # Escribe tu código aquí:
-    pass
+    # Ejemplo de uso del método Euler con arreglos
+    # Los datos x_datos, dy_datos y y0 deben definirse aquí
+    x_datos = [0, 0.2, 0.4, 0.6, 0.8, 1.0]  # Definir datos en el main
+    dy_datos = [0, 0.4, 0.8, 1.2, 1.6, 2.0]
+    y_resultado = euler_arreglos(x_datos, dy_datos, y0=0)
+    print(f"Resultado final: y({x_datos[-1]}) = {y_resultado[-1]}")
