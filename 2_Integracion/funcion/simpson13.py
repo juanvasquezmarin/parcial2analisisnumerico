@@ -60,76 +60,29 @@ def simpson13(f, a, b, n):
 
     # Validación
     if n % 2 != 0:
-        raise ValueError(f"ERROR: n debe ser PAR para Simpson 1/3. Tienes n={n}")
+        raise ValueError("ERROR: n debe ser PAR para Simpson 1/3.")
     if n <= 0:
-        raise ValueError("n debe ser positivo")
+        raise ValueError("n debe ser positivo.")
     if a >= b:
-        raise ValueError(f"a={a} debe ser menor que b={b}")
+        raise ValueError("El límite inferior a debe ser menor que b.")
 
     h = (b - a) / n
 
-    # ====================================
-    # ENCABEZADO
-    # ====================================
-    print("\n" + "="*105)
-    print("REGLA DE SIMPSON 1/3 - INTEGRACIÓN NUMÉRICA")
-    print("="*105)
-    print(f"\nIntegral: ∫[{a}, {b}] f(x) dx")
-    print(f"Intervalos: n = {n} (par ✓)")
-    print(f"Paso: h = {h}")
-    print("\nPATRÓN DE MULTIPLICADORES: 1, 4, 2, 4, 2, ..., 4, 1")
-
-    # ====================================
-    # EVALUACIONES
-    # ====================================
-    print("\n" + "─"*105)
-    print("EVALUACIÓN EN CADA PUNTO:")
-    print("─"*105)
-    print(f"{'i':>5} | {'xᵢ':>15} | {'f(xᵢ)':>20} | {'Coef':>8} | {'Contribución':>20} | {'Razón':>20}")
-    print("─"*105)
-
-    # Primer punto
+    # Evaluación inicial
     x = a
-    f_val = f(x)
-    suma = f_val
-    print(f"{0:>5} | {x:>15.8f} | {f_val:>20.12f} | {'1':>8} | {f_val:>20.12f} | {'Extremo izquierdo':>20}")
+    suma = f(x)  # f(x₀)
 
     # Puntos intermedios
     for i in range(1, n):
         x = a + i * h
-        f_val = f(x)
+        coef = 4 if i % 2 != 0 else 2  # Alterna entre 4 y 2
+        suma += coef * f(x)
 
-        if i % 2 == 0:  # Pares: coeficiente 2
-            coef = 2
-            razon = "Punto par"
-            suma += 2 * f_val
-        else:  # Impares: coeficiente 4
-            coef = 4
-            razon = "Punto impar"
-            suma += 4 * f_val
+    # Evaluación final
+    suma += f(b)  # f(xₙ)
 
-        print(f"{i:>5} | {x:>15.8f} | {f_val:>20.12f} | {coef:>8} | {coef*f_val:>20.12f} | {razon:>20}")
-
-    # Último punto
-    x = b
-    f_val = f(x)
-    suma += f_val
-    print(f"{n:>5} | {x:>15.8f} | {f_val:>20.12f} | {'1':>8} | {f_val:>20.12f} | {'Extremo derecho':>20}")
-
-    # ====================================
-    # RESULTADO
-    # ====================================
+    # Resultado final
     resultado = (h / 3) * suma
-
-    print("─"*105)
-    print(f"\n{'CÁLCULO:':^105}")
-    print(f"{'─'*105}")
-    print(f"  Suma ponderada: {suma:.12f}")
-    print(f"  Fórmula: I = (h/3) × Suma = ({h}/3) × {suma:.12f}")
-    print(f"{'─'*105}")
-    print(f"\n{'RESULTADO: ∫ f(x) dx ≈ ' + f'{resultado:.12f}':^105}")
-    print("="*105 + "\n")
-
     return resultado
 
 
@@ -138,6 +91,13 @@ def simpson13(f, a, b, n):
 # ==============================================================================
 
 if __name__ == "__main__":
+    # Define la función f y los parámetros aquí
+    f = lambda x: x**2  # Ejemplo: función f(x)
+    a, b = 0, 1  # Límites de integración
+    n = 10  # Número de subintervalos (par)
+    resultado = simpson13(f, a, b, n)
+    print(f"Resultado: {resultado}")
+
     # ============================================================================
     # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
     # ============================================================================
@@ -159,4 +119,3 @@ if __name__ == "__main__":
 
     # Escribe tu código aquí:
     pass
-

@@ -106,25 +106,9 @@ def simpson38(f, a, b, n):
 
 
 if __name__ == "__main__":
-    # ============================================================================
-    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
-    # ============================================================================
-    #
-    # 1. Define tu función:
-    #    f = lambda x: [tu_expresión]
-    #
-    # 2. Llama a la función (⚠️ n DEBE SER MÚLTIPLO DE 3):
-    #    resultado = simpson38(f, a=límite_inferior, b=límite_superior, n=num_intervalos)
-    #
-    # 3. La respuesta se muestra automáticamente
-    #
-    # EJEMPLO:
-    # f = lambda x: x**2
-    # resultado = simpson38(f, a=0, b=1, n=6)  # n=6 es múltiplo de 3 ✓
-    #
-    # IMPORTANTE: n debe ser múltiplo de 3 (3, 6, 9, 12, 15...)
-    # ============================================================================
-
-    # Escribe tu código aquí:
-    pass
-
+    # Define la función f y los parámetros aquí
+    f = lambda x: x**2  # Ejemplo: función f(x)
+    a, b = 0, 1  # Límites de integración
+    n = 6  # Número de subintervalos (múltiplo de 3)
+    resultado = simpson38(f, a, b, n)
+    print(f"Resultado: {resultado}")

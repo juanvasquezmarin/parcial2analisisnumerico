@@ -156,26 +156,9 @@ def trapecio(f, a, b, n):
 # ==============================================================================
 
 if __name__ == "__main__":
-    # ============================================================================
-    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
-    # ============================================================================
-    #
-    # 1. Define tu función:
-    #    f = lambda x: [tu_expresión]
-    #    Ejemplo: f = lambda x: x**2 + 3*x
-    #
-    # 2. Llama a la función con los parámetros:
-    #    resultado = trapecio(f, a=límite_inferior, b=límite_superior, n=num_intervalos)
-    #
-    # 3. La respuesta se muestra automáticamente y se retorna en 'resultado'
-    #
-    # EJEMPLO:
-    # f = lambda x: x**2
-    # resultado = trapecio(f, a=0, b=1, n=10)
-    # print(f"Respuesta: {resultado}")
-    # ============================================================================
-
-    # Escribe tu código aquí:
-    pass
-
-
+    # Define la función f y los parámetros aquí
+    f = lambda x: x**2  # Ejemplo: función f(x)
+    a, b = 0, 1  # Límites de integración
+    n = 10  # Número de subintervalos
+    resultado = trapecio(f, a, b, n)
+    print(f"Resultado: {resultado}")

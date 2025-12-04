@@ -1,48 +1,64 @@
 """
-    """)
+    Simpson 1/3 para datos discretos.
+    ================================
+
     ✓ 5 puntos → 4 intervalos (PAR) → OK
     ❌ 4 puntos → 3 intervalos (IMPAR) → Error
+
     ============
     ERROR COMÚN:
+    - El número de intervalos debe ser par (número de puntos impar).
+    - El espaciamiento entre puntos debe ser constante.
 
-    resultado = simpson13_arreglos(x, y)
-    y = [1, 2, 5, 10, 17, 26, 37]
-    x = [0, 1, 2, 3, 4, 5, 6]
-    Tabla con 7 puntos:
     ====================
     EJEMPLO DEL PARCIAL:
-
     • Si tienes 7 puntos → 6 intervalos (PAR ✓)
     • Si tienes 5 puntos → 4 intervalos (PAR ✓)
     • Espaciamiento: CONSTANTE
     • Número de puntos: IMPAR (3, 5, 7, 9, ...)
-    ===========
-    REQUISITOS:
+"""
 
-    resultado = simpson13_arreglos(x, y)
-    y = [...]
-    x = [...]  # número IMPAR de puntos
-    ====
-    USO:
-    print("""
-    print("╚" + "═"*103 + "╝")
-    print("║" + "GUÍA".center(103) + "║")
-    print("\n╔" + "═"*103 + "╗")
-    
-    print(f"Exacto: {exacto:.10f}, Error: {abs(resultado-exacto):.2e}")
-    exacto = 1/3
-    resultado = simpson13_arreglos(x, y)
-    
-    y = [0.0, 0.0625, 0.25, 0.5625, 1.0]
-    x = [0.0, 0.25, 0.5, 0.75, 1.0]
-    
-    print("└" + "─"*103 + "┘")
-    print("│ EJEMPLO: Datos de y = x² con 5 puntos (4 intervalos = PAR ✓)".ljust(103) + "│")
-    print("\n┌" + "─"*103 + "┐")
-    
-    print("╚" + "═"*103 + "╝")
-    print("║" + "SIMPSON 1/3 CON DATOS - EJEMPLOS".center(103) + "║")
-    print("\n╔" + "═"*103 + "╗")
+def simpson13_arreglos(x, y):
+    """
+    Simpson 1/3 para datos discretos.
+
+    PARÁMETROS:
+    -----------
+    x, y : lists
+        x: valores de x (ordenados y con espaciamiento constante)
+        y: valores de y correspondientes a x
+
+    RETORNA:
+    --------
+    float
+        Aproximación de la integral.
+
+    REQUISITOS:
+    -----------
+    - Número de puntos debe ser impar (número de intervalos par).
+    - Espaciamiento entre puntos debe ser constante.
+    """
+
+    if len(x) != len(y):
+        raise ValueError("x e y deben tener la misma longitud.")
+    if len(x) < 3:
+        raise ValueError("Se necesitan al menos 3 puntos.")
+    if (len(x) - 1) % 2 != 0:
+        raise ValueError("El número de intervalos debe ser par (número de puntos impar).")
+
+    # Verificar que el espaciamiento sea constante
+    h = x[1] - x[0]
+    if not all(abs((x[i + 1] - x[i]) - h) < 1e-6 for i in range(len(x) - 1)):
+        raise ValueError("El espaciamiento entre puntos debe ser constante.")
+
+    # Aplicar la regla de Simpson 1/3
+    suma = y[0] + y[-1]  # f(x₀) + f(xₙ)
+    for i in range(1, len(x) - 1):
+        coef = 4 if i % 2 != 0 else 2  # Alterna entre 4 y 2
+        suma += coef * y[i]
+
+    resultado = (h / 3) * suma
+    return resultado
 
 
 # ==============================================================================
@@ -50,16 +66,8 @@
 # ==============================================================================
 
 if __name__ == "__main__":
-    # ============================================================================
-    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
-    # ============================================================================
-    #
-    # 1. Define tu función o datos según el método
-    # 2. Llama a la función correspondiente con los parámetros necesarios
-    # 3. La respuesta se muestra automáticamente y se retorna
-    #
-    # Consulta el docstring de la función principal para ver ejemplos de uso
-    # ============================================================================
-    
-    # Escribe tu código aquí:
-    pass
+    # Define los datos x e y aquí
+    x = [0, 0.25, 0.5, 0.75, 1.0]  # Ejemplo: valores de x
+    y = [0.0, 0.0625, 0.25, 0.5625, 1.0]  # Ejemplo: valores de y (y = x²)
+    resultado = simpson13_arreglos(x, y)
+    print(f"Resultado: {resultado}")

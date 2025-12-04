@@ -36,50 +36,19 @@ def simpson38_arreglos(x, y):
     """
 
     if len(x) != len(y):
-        raise ValueError(f"x y y deben tener igual longitud")
-
-    n_intervalos = len(x) - 1
-    if n_intervalos % 3 != 0:
-        raise ValueError(f"Número de intervalos debe ser múltiplo de 3. Tienes {n_intervalos}")
-
+        raise ValueError("x e y deben tener la misma longitud.")
+    if (len(x) - 1) % 3 != 0:
+        raise ValueError("El número de intervalos debe ser múltiplo de 3.")
     if len(x) < 4:
-        raise ValueError("Se necesitan al menos 4 puntos")
+        raise ValueError("Se necesitan al menos 4 puntos.")
 
     h = x[1] - x[0]
-
-    print("\n" + "="*105)
-    print("SIMPSON 3/8 CON DATOS DISCRETOS")
-    print("="*105)
-    print(f"\nPuntos: {len(x)} (intervalos: {n_intervalos}, múltiplo de 3 ✓)")
-    print(f"Espaciamiento: h ≈ {h:.6f}")
-
-    print("\n" + "─"*105)
-    print(f"{'i':>4} | {'x':>12} | {'y':>15} | {'Coef':>6} | {'Contribución':>18}")
-    print("─"*105)
-
-    suma = y[0]
-    print(f"{0:>4} | {x[0]:>12.6f} | {y[0]:>15.10f} | {'1':>6} | {y[0]:>18.10f}")
-
+    suma = y[0] + y[-1]
     for i in range(1, len(x) - 1):
-        if i % 3 == 0:
-            coef = 2
-            suma += 2 * y[i]
-        else:
-            coef = 3
-            suma += 3 * y[i]
-        print(f"{i:>4} | {x[i]:>12.6f} | {y[i]:>15.10f} | {coef:>6} | {coef*y[i]:>18.10f}")
+        coef = 2 if i % 3 == 0 else 3
+        suma += coef * y[i]
 
-    suma += y[-1]
-    print(f"{len(x)-1:>4} | {x[-1]:>12.6f} | {y[-1]:>15.10f} | {'1':>6} | {y[-1]:>18.10f}")
-
-    resultado = (3 * h / 8) * suma
-
-    print("─"*105)
-    print(f"\n  I = (3h/8) × Suma = (3×{h}/8) × {suma:.10f} = {resultado:.10f}")
-    print(f"\n{'RESULTADO: ' + f'{resultado:.10f}':^105}")
-    print("="*105 + "\n")
-
-    return resultado
+    return (3 * h / 8) * suma
 
 
 # ==============================================================================
@@ -87,16 +56,7 @@ def simpson38_arreglos(x, y):
 # ==============================================================================
 
 if __name__ == "__main__":
-    # ============================================================================
-    # CÓMO USAR ESTE MÉTODO EN TU PARCIAL
-    # ============================================================================
-    #
-    # 1. Define tu función o datos según el método
-    # 2. Llama a la función correspondiente con los parámetros necesarios
-    # 3. La respuesta se muestra automáticamente y se retorna
-    #
-    # Consulta el docstring de la función principal para ver ejemplos de uso
-    # ============================================================================
-    
-    # Escribe tu código aquí:
-    pass
+    x = [0, 1, 2, 3, 4, 5, 6]
+    y = [1, 2, 5, 10, 17, 26, 37]
+    resultado = simpson38_arreglos(x, y)
+    print(f"Resultado: {resultado}")
