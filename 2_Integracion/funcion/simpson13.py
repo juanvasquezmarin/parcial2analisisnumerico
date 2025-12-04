@@ -72,17 +72,29 @@ def simpson13(f, a, b, n):
     x = a
     suma = f(x)  # f(x₀)
 
+    print("\n" + "="*80)
+    print("PROCEDIMIENTO - SIMPSON 1/3")
+    print("="*80)
+    print(f"{'i':>5} | {'xᵢ':>10} | {'f(xᵢ)':>15} | {'Coef':>10} | {'Contribución':>15}")
+    print("-"*80)
+
     # Puntos intermedios
     for i in range(1, n):
         x = a + i * h
         coef = 4 if i % 2 != 0 else 2  # Alterna entre 4 y 2
-        suma += coef * f(x)
-
-    # Evaluación final
-    suma += f(b)  # f(xₙ)
+        contrib = coef * f(x)
+        suma += contrib
+        print(f"{i:>5} | {x:>10.4f} | {f(x):>15.4f} | {coef:>10} | {contrib:>15.4f}")
+    x = b
+    print(f"{n:>5} | {x:>10.4f} | {f(x):>15.4f} | {'1':>10} | {f(x):>15.4f}")
+    suma += f(x)
 
     # Resultado final
     resultado = (h / 3) * suma
+    print("-"*80)
+    print(f"Suma total: {suma:.4f}")
+    print(f"Resultado final: I = (h/3) * Suma = ({h}/3) * {suma:.4f} = {resultado:.4f}")
+    print("="*80 + "\n")
     return resultado
 
 

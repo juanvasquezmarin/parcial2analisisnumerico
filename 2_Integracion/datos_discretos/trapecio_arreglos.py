@@ -56,11 +56,22 @@ def trapecio_datos(x, y):
     if len(x) < 2:
         raise ValueError("Se necesitan al menos 2 puntos.")
 
+    print("\n" + "="*80)
+    print("PROCEDIMIENTO - TRAPECIO PARA DATOS DISCRETOS")
+    print("="*80)
+    print(f"{'i':>5} | {'xᵢ':>10} | {'yᵢ':>10} | {'h':>10} | {'Área':>15}")
+    print("-"*80)
+
     suma = 0
     for i in range(len(x) - 1):
         h = x[i + 1] - x[i]
-        suma += (y[i] + y[i + 1]) * h / 2
+        area = (y[i] + y[i + 1]) * h / 2
+        suma += area
+        print(f"{i:>5} | {x[i]:>10.4f} | {y[i]:>10.4f} | {h:>10.4f} | {area:>15.4f}")
 
+    print("-"*80)
+    print(f"Suma total de áreas: {suma:.4f}")
+    print("="*80 + "\n")
     return suma
 
 

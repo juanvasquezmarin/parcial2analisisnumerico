@@ -102,6 +102,30 @@ def simpson38(f, a, b, n):
     print(f"\n{'RESULTADO: ' + f'{resultado:.12f}':^105}")
     print("="*105 + "\n")
 
+    print("\n" + "="*80)
+    print("PROCEDIMIENTO - SIMPSON 3/8")
+    print("="*80)
+    print(f"{'i':>5} | {'xᵢ':>10} | {'f(xᵢ)':>15} | {'Coef':>10} | {'Contribución':>15}")
+    print("-"*80)
+
+    x = a
+    suma = f(x)
+    print(f"{0:>5} | {x:>10.4f} | {f(x):>15.4f} | {'1':>10} | {f(x):>15.4f}")
+    for i in range(1, n):
+        x = a + i * h
+        coef = 2 if i % 3 == 0 else 3
+        contrib = coef * f(x)
+        suma += contrib
+        print(f"{i:>5} | {x:>10.4f} | {f(x):>15.4f} | {coef:>10} | {contrib:>15.4f}")
+    x = b
+    print(f"{n:>5} | {x:>10.4f} | {f(x):>15.4f} | {'1':>10} | {f(x):>15.4f}")
+    suma += f(x)
+
+    resultado = (3 * h / 8) * suma
+    print("-"*80)
+    print(f"Suma total: {suma:.4f}")
+    print(f"Resultado final: I = (3h/8) * Suma = (3*{h}/8) * {suma:.4f} = {resultado:.4f}")
+    print("="*80 + "\n")
     return resultado
 
 
